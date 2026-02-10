@@ -25,6 +25,9 @@ application:
   
   package_fallback: true
   
+  # Build command to compile TypeScript
+  build_command: "npm run build"
+  
   environment_variables:
     APP_ENV: production
     # Database Configuration
