@@ -20,6 +20,23 @@ export const apiRouter = Router();
 const authService = new AuthenticationService(storage);
 const friendService = new FriendService(storage);
 
+// ============================================
+// Health Check Endpoint (No Auth Required)
+// ============================================
+
+/**
+ * GET /health
+ * Health check endpoint for deployment monitoring
+ * Returns 200 OK if the service is running
+ */
+apiRouter.get('/health', (req: Request, res: Response) => {
+  res.status(200).json({
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    service: 'ai-stories-sharing'
+  });
+});
+
 /**
  * Extended Request interface with authenticated user
  */

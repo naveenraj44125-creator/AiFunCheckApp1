@@ -12,13 +12,8 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 
-// Health check endpoint
-app.get('/health', (req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString() });
-});
-
-// API routes
-app.use(apiRouter);
+// API routes (includes /api/health endpoint)
+app.use('/api', apiRouter);
 
 // Global error handler
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

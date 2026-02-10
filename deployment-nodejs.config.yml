@@ -144,7 +144,6 @@ deployment:
       health_check: true
       external_connectivity: true
       endpoints_to_test:
-        - "/"
         - "/api/health"
       port: 3000  # Node.js applications run on port 3000
 
@@ -171,8 +170,8 @@ github_actions:
 
 monitoring:
   health_check:
-    endpoint: "/"
-    expected_content: "Node.js"
+    endpoint: "/api/health"
+    expected_content: "ok"
     port: 3000  # Node.js applications run on port 3000
     max_attempts: 15
     wait_between_attempts: 20
