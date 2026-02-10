@@ -20,9 +20,6 @@ application:
   version: "1.0.0"
   type: nodejs
   
-  # Specify the deployment directory
-  app_directory: "/var/www/aifuncheckapp1"
-  
   package_files:
     - "./"
   
@@ -94,8 +91,6 @@ dependencies:
       app_name: "aifuncheckapp1"
       instances: 1
       exec_mode: "cluster"
-      script: "/var/www/aifuncheckapp1/dist/index.js"
-      cwd: "/var/www/aifuncheckapp1"
   
   git:
     enabled: true
