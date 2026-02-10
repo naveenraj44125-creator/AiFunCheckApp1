@@ -21,4 +21,6 @@ __exportStar(require("./AuthenticationService"), exports);
 __exportStar(require("./PostService"), exports);
 __exportStar(require("./FriendService"), exports);
 __exportStar(require("./FeedService"), exports);
+__exportStar(require("./SerializationService"), exports);
+__exportStar(require("./MediaService"), exports);
 //# sourceMappingURL=index.js.map

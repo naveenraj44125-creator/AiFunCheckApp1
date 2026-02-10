@@ -90,7 +90,8 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
+# dist - COMMENTED OUT: We need to commit dist/ for deployment
+# dist
 
 # Gatsby files
 .cache/

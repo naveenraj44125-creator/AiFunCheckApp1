@@ -8,16 +8,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.app = void 0;
 const express_1 = __importDefault(require("express"));
+const index_1 = require("./api/index");
+const errors_1 = require("./models/errors");
 const app = (0, express_1.default)();
 exports.app = app;
 const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express_1.default.json());
-// Health check endpoint
-app.get('/health', (req, res) => {
-    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+// API routes (includes /api/health endpoint)
+app.use('/api', index_1.apiRouter);
+// Global error handler
+app.use((err, req, res, next) => {
+    if (err instanceof errors_1.AppError) {
+        res.status(err.statusCode).json({
+            error: err.code,
+            message: err.message
+        });
+    }
+    else {
+        console.error('Unexpected error:', err);
+        res.status(500).json({
+            error: 'INTERNAL_ERROR',
+            message: 'An unexpected error occurred'
+        });
+    }
 });
-// API routes will be added in Task 12
 // Start server
 if (require.main === module) {
     app.listen(PORT, () => {

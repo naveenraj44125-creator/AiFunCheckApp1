@@ -5,4 +5,6 @@ export * from './AuthenticationService';
 export * from './PostService';
 export * from './FriendService';
 export * from './FeedService';
+export * from './SerializationService';
+export * from './MediaService';
 //# sourceMappingURL=index.d.ts.map
