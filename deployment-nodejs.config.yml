@@ -13,7 +13,7 @@ lightsail:
   
   # Operating system blueprint configuration (optional)
   # If not specified, defaults to ubuntu_22_04
-  blueprint_id: "ubuntu_20_04"
+  blueprint_id: "ubuntu_22_04"
 
 application:
   name: aifuncheckapp1
