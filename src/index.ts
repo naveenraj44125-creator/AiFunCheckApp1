@@ -12,6 +12,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.json());
 
+// Serve static files from public directory
+app.use(express.static('public'));
+
 // API routes (includes /api/health endpoint)
 app.use('/api', apiRouter);
 

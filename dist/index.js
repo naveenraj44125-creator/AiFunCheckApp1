@@ -15,6 +15,8 @@ exports.app = app;
 const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express_1.default.json());
+// Serve static files from public directory
+app.use(express_1.default.static('public'));
 // API routes (includes /api/health endpoint)
 app.use('/api', index_1.apiRouter);
 // Global error handler
